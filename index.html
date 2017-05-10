@@ -1,0 +1,818 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JQUERY插件</title>
+<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+</head>
+<style type="text/css">
+body
+,p
+,li
+,a
+,span
+,div{
+	font-family:"微软雅黑";
+	}
+div.icon:hover{
+	box-shadow:3px 3px 8px  #0099FF
+	border-radius:30px !important;
+	}
+.nav>li>a{
+	padding:0px 0px;
+	}
+div.icon{
+	margin:0px 30px;
+	}
+ul.dropdown-menu{
+	width:150px;
+	}
+.dropdown-menu>li>a{
+	padding:0px 0px;
+	}
+.dropdown-menu>li>a:hover ~ ul{
+	display:block;border-radius:8px;
+	}
+.dropdown-menu>li>a~ul:hover {
+    display: block;
+  }
+.itm{
+	display:inline-block;
+	width:170px;
+	height:170px;
+	padding:35px 35px;
+	}
+.itm img{
+	margin:auto;
+	width:100px;
+	height:100px;
+	border-radius:15px;
+	}
+.middle{
+	display:block;
+	width:170px;
+	height:170px;
+	padding:15px 15px;
+	}
+.middle img{
+	margin:auto;
+	width:140px;
+	height:140px;
+	border-radius:28px;
+	}
+#rotate img:hover{
+	box-shadow:2px 2px 8px #33FF00;
+	}
+.side-menu{
+	position:fixed;margin-top:280px;
+	}
+.side-menu > ul > li{
+	position:absolute;
+	}
+	
+.side-menu img:hover{
+	box-shadow:2px 2px 8px #00FF00;
+	border-radius:50px;
+	}
+.side-menu > ul > li:not(:last) img{
+	display:none;
+	}
+@keyframes mymove1{
+	0%{margin-top:0px;}
+	100%{margin-top:-270px;}	
+}
+@-webkit-keyframes mymove1{
+	0%{margin-top:0px;}
+	100%{margin-top:-270px;}	
+}
+@keyframes mymove2{
+	from{
+		margin-left:0px;
+		margin-top:0px;
+		}
+	to{
+		margin-left:100px;
+		margin-top:-150px;
+		}	
+}
+@-webkit-keyframes mymove2{
+	from{
+		margin-top:0px;
+		}
+	to{
+		margin-top:-270px;
+		}	
+}
+@keyframes mymove3{
+	from{
+		margin-left:0px;
+		}
+	to{
+		margin-left:140px;
+		}	
+}
+@-webkit-keyframes mymove3{
+	from{
+		margin-top:0px;
+		}
+	to{
+		margin-top:-270px;
+		}	
+}
+@keyframes mymove4{
+	from{
+		margin-left:0px;
+		margin-top:0px;
+		}
+	to{
+		margin-left:100px;
+		margin-top:100px;
+		}	
+}
+@-webkit-keyframes mymove4{
+	from{
+		margin-top:0px;
+		}
+	to{
+		margin-top:-270px;
+		}	
+}
+@keyframes mymove5{
+	from{
+		margin-top:0px;
+		}
+	to{
+		margin-top:170px;
+		}	
+}
+@-webkit-keyframes mymove5{
+	from{
+		margin-top:0px;
+		}
+	to{
+		margin-top:-270px;
+		}	
+}
+
+.left-menu{
+	float:left;
+	width:40px;
+	height:110px;
+	margin-top:130px;
+	position:relative;
+	z-index:300;
+	border-radius:5px;
+	}
+.right-menu{
+	float:right;
+	width:40px;
+	height:110px;
+	margin-top:130px;
+	position:relative;
+	z-index:300;
+	border-radius:5px;
+	}
+.imgButton{
+	width:40px;
+	height:110px;
+	opacity:0.3;filter:alpha(opacity=30);
+
+	}
+.list-num{
+	border-radius:10px;
+	width:20px;
+	height:20px;
+	background-color:#999;
+	opacity:0.6;
+	filter:alpha(opacity=60);
+	color:#FFF;
+	font-family:"华文细黑";
+	font-size:18px;
+	list-style:none;
+	float:left;
+	margin-left:20px;
+	text-align:center;
+
+	}
+.imageBox-active{
+	width:600px;
+	height:380px;
+	position:absolute;
+	float:left;
+	z-index:100;
+
+	}
+.imageBox{
+	width:600px;
+	height:380px;
+	position:absolute;
+	float:left;
+	z-index:100;
+	display:none;
+
+	}
+.imgGroup{
+	width:600px;
+	height:380px;
+	border: #FF6 solid 1px;
+}
+.mid-list{
+	width:300px;
+	height:35px;
+	float:left;
+	margin-left:100px;
+	margin-top:345px;
+	position:relative;
+	z-index:300;
+	}
+#img-container{
+	width:600px;
+	height:380px;
+	position:relative;
+	z-index:200;
+	margin-top:0px;
+	margin-left:230px;
+	padding:0 0;
+	}
+#carousel{
+	position:relative;
+
+	}
+#carousel img{
+	position:absolute;
+	border-radius:20px;
+	box-shadow:1px 1px 8px #0099FF;
+	width:300px;
+	height:225px;
+	margin:37px 50px;
+	opacity:0.8;
+
+	}
+div#img1{
+	width:400px;
+	height:300px;
+	z-index:10;
+
+	}
+div#img2{
+	width:400px;
+	height:300px;
+	left:200px;
+	top:50px;
+	z-index:20;
+
+	}
+div#img3{
+	width:400px;
+	height:300px;
+	left:350px;
+	top:100px;
+	z-index:30;
+
+	}
+div#img4{
+	width:400px;
+	height:300px;
+	left:550px;
+	top:50px;
+	z-index:20;
+
+	}
+div#img5{
+	width:400px;
+	height:300px;
+	left:700px;
+	z-index:10;
+
+	}
+#carousel img:hover{
+	box-shadow:1px 1px 8px #00FF66;
+	width:350px;
+	height:262px;
+	margin:19px 25px;
+	opacity:1;
+	z-index:500 !important;
+
+	}
+#carousel div{
+	position:absolute;
+	display:block;
+	border-radius:20px;
+
+	}
+@keyframes img1-carousel{
+	0%{left:0px;
+		top:0px;
+		z-index:10}
+	20%{left:200px;
+		top:50px;
+		z-index:20}
+	40%{left:350px;
+		top:100px;
+		z-index:30}
+	60%{left:550px;
+		top:50px;
+		z-index:20}
+	80%{left:700px;
+		top:0px;
+		z-index:10}
+	100%{left:0px;
+		top:0px;
+		}
+}
+@keyframes img2-carousel{
+	0%{left:200px;
+		top:50px;
+		z-index:20}
+	20%{left:350px;
+		top:100px;
+		z-index:30}
+	40%{left:550px;
+		top:50px;
+		z-index:20}
+	60%{left:700px;
+		top:0px;
+		z-index:10}
+	80%{left:0px;
+		top:0px;
+		z-index:10}
+	100%{left:200px;
+		top:50px;
+		}
+}
+@keyframes img3-carousel{
+	0%{left:350px;
+		top:100px;
+		z-index:30}
+	24%{left:550px;
+		top:50px;
+		z-index:20}
+	40%{left:700px;
+		top:0px;
+		z-index:10}
+	60%{left:0px;
+		top:0px;
+		z-index:10}
+	80%{left:200px;
+		top:50px;
+		z-index:20}
+	100%{left:350px;
+		top:100px;
+		}
+}
+@keyframes img4-carousel{
+	0%{left:550px;
+		top:50px;
+		z-index:20}
+	20%{left:700px;
+		top:0px;
+		z-index:10}
+	40%{left:0px;
+		top:0px;
+		z-index:10}
+	60%{left:200px;
+		top:50px;
+		z-index:20}
+	80%{left:350px;
+		top:100px;
+		z-index:30}
+	100%{left:550px;
+top:50px;
+	}
+
+}
+@keyframes img5-carousel{
+	0%{left:700px;
+		top:0px;
+		z-index:10
+		}
+	20%{left:0px;
+		top:0px;
+		z-index:10
+		}
+	40%{left:200px;
+		top:50px;
+		z-index:20
+		}
+	60%{left:350px;
+		top:100px;
+		z-index:30
+		}
+	80%{left:550px;
+		top:50px;
+		z-index:20
+		}
+	100%{left:700px;
+		top:0px;
+		}
+
+}
+#img1{
+	animation:img1-carousel 15s infinite;
+
+	}
+#img2{
+	animation:img2-carousel 15s infinite;
+
+	}
+#img3{
+	animation:img3-carousel 15s infinite;
+
+	}
+
+#img4{
+	animation:img4-carousel 15s infinite;
+
+	}
+
+#img5{
+	animation:img5-carousel 15s infinite;
+
+	}
+
+
+
+
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	setInterval(function(){
+			var count=+$('.img:visible').index()-1;
+			$('.img').css('display','none');
+			if(count<5&&count>=0){
+				$('.img').eq(count+1).css('display','block');
+				$('.list-num').css('background-color','#999');
+				$('.list-num').eq(count+1).css('background-color','#6A0923');
+			}else{
+				$('.img').eq(count-5).css('display','block');
+				$('.list-num').css('background-color','#999');
+				$('.list-num').eq(count-5).css('background-color','#6A0923');
+			}
+		},3000);
+		$('.list-num').hover(
+			function(){
+				$this=$(this);
+				$this.css("background-color","#242424");
+			},
+			function(){
+				$this.css("background-color","#999");
+		});
+		$('.imgButton').hover(
+			function(){
+				$this=$(this);
+				$this.css("opacity","0.5",'transform');
+			
+			},
+			function(){
+				$this.css("opacity","0.3");
+		});
+		$('.list-num').click(function(){
+			$this=$(this);
+			$('.img').css("display",'none');
+			var num=+$this.html()-1;
+			$('.img').eq(num).css('display','block');
+			$('.list-num').eq(num).css('background-color','#6A0923');
+		});	
+		$('.left-menu').click(function(){
+			var num=+$('.img:visible').index()-1;
+			$('.img').css("display",'none');
+			$('.img').eq(num-1).css('display','block');
+		});	
+		$('.right-menu').click(function(){
+			var num=+$('.img:visible').index()-1;
+			$('.img').css("display",'none');
+			if(num<5&&num>=0){
+				$('.img').eq(num+1).css('display','block');
+				$('.list-num').eq(num+1).css('background-color','#6A0923');
+			}else{
+				$('.img').eq(num-5).css('display','block');
+				$('.list-num').eq(num-5).css('background-color','#6A0923');
+			}
+		});	
+	
+	$('#rotate img').hover(function() {
+		$this=$(this);
+		$this.parent().removeClass();
+		$this.parent().addClass("middle");
+	},function() {
+		$('#rotate img').parent().removeClass("middle");
+		$('#rotate img').parent().addClass('itm');
+	});
+	$('.menu-list img:first').click(function() {
+		$('.menu-list img:first').hide();
+		$('.menu-list img:last').show();
+		$('.side-menu > ul > li:not(:last) img').show();
+		$('#img-1').css({'animation':'mymove1 2s infinite'});
+		$('#img-2').css({'animation':'mymove2 2s infinite'});
+		$('#img-3').css({'animation':'mymove3 2s infinite'});
+		$('#img-4').css({'animation':'mymove4 2s infinite'});
+		$('#img-5').css({'animation':'mymove5 2s infinite'});
+		setTimeout(
+			function() {
+				$('.side-menu > ul > li:not(:last) img').css(
+					{'animation-play-state':'paused'},
+					{'-webkit-animation-play-state':'paused'}
+				);
+				$('.side-menu > ul > li:not(:last) img').show();
+			
+			},2000
+		);
+
+	});
+	$('.menu-list img:last').click(function() {
+		$('.menu-list img:first').show();
+		$('.menu-list img:last').hide();
+		$('.side-menu > ul > li:not(:last) img').hide();
+	});
+	
+	$('#carousel img').hover(
+			function() {
+				$this=$(this);
+				$this.parent().css('z-index','50');
+				$('#carousel div').css(
+					{'animation-play-state':'paused'},
+					{'-webkit-animation-play-state':'paused'}
+				);
+			},
+			function() {
+				$('#carousel div').css(
+					{'animation-play-state':'running'},
+					{'-webkit-animation-play-state':'running'}
+				);
+			}
+		);
+});
+</script>
+<body>
+<div class="navbar navbar-fixed-top navbar-default">
+	<div class="container">
+        <ul class="nav nav-tabs col-md-8">
+          	<li class="dropdown"> 
+                <a href="#" class="data-toggle" data-toggle="dropdown" > 
+                   <div class="icon mail">
+                        <span class="picto">
+                            <span class="inner i1"></span>
+                            <span class="inner i2"></span>
+                        </span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu" >
+                    <li class=" dropdown">
+                        <a href="#" class="data-toggle" data-toggle="dropdown"><div class="icon notes"></div></a>
+                        <ul class="dropdown-menu" style="position:absolute;margin-left:150px;margin-top:-100px;">
+                        	<li class="text-danger text-center">记事本</li>
+                            <li class="divider"></li>
+                            <li class="text-center"><a href="#" >信息<span ></span></a></li>
+                            <li class="text-center"><a href="#" >备注</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="data-toggle" data-toggle="dropdown"><div class="icon messages"></div></a>
+                        <ul class="dropdown-menu" style="position:absolute;margin-left:150px;margin-top:-320px;">
+                        	<li class="text-danger text-center">记事本</li>
+                            <li class="divider"></li>
+                            <li class="text-center"><a href="#" >信息<span ></span></a></li>
+                            <li class="text-center"><a href="#" >备注</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                    	<a href="#" class="data-toggle" data-toggle="dropdown">
+                            <div class="icon newsstand">
+                                <div class="news">
+                                    <span>News</span>
+                                </div>
+                                <div class="art">
+                                    <span>Art</span>
+                                </div>
+                                <div class="travel">
+                                    <span class="label">Travel</span>
+                                    <span class="picto"></span>
+                                </div>
+                                <div class="sports">
+                                    <span class="label">Sports</span>
+                                </div>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu" style="position:absolute;margin-left:150px;margin-top:-200px;">
+                        	<li class="text-danger text-center">记事本</li>
+                            <li class="divider"></li>
+                            <li class="text-center"><a href="#" >信息<span ></span></a></li>
+                            <li class="text-center"><a href="#" >备注</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                    	<a href="#" class="data-toggle" data-toggle="dropdown">
+                            <div class="icon reminders">
+                                <span class="list-item i1"></span>
+                                <span class="list-item i2"></span>
+                                <span class="list-item i3"></span>
+                                <span class="list-item i4"></span>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu" style="position:absolute;margin-left:150px;margin-top:-100px;">
+                        	<li class="text-danger text-center">记事本</li>
+                            <li class="divider"></li>
+                            <li class="text-center"><a href="#" >信息<span ></span></a></li>
+                            <li class="text-center"><a href="#" >备注</a></li>
+                        </ul>
+                    </li>
+        
+                </ul>
+            </li>
+            <li class="dropdown">    
+                <a href="#" class="data-toggle" data-toggle="dropdown">    
+                    <div class="icon facetime">
+                        <span class="picto"></span>
+                        <span class="lens"></span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <div class="icon photos">
+                            <span class="fan f1"></span>
+                            <span class="fan f2"></span>
+                            <span class="fan f3"></span>
+                            <span class="fan f4"></span>
+                            <span class="fan f5"></span>
+                            <span class="fan f6"></span>
+                            <span class="fan f7"></span>
+                            <span class="fan f8"></span>
+                        </div>
+                    </li>
+                   
+                    <li>
+                        <div class="icon gamecenter">
+                            <div class="bubble blue"></div>
+                            <div class="bubble yellow"></div>
+                            <div class="bubble purple"></div>
+                            <div class="bubble pink"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon camera">
+                            <span class="upper"></span>
+                            <span class="case"></span>
+                            <span class="knob"></span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">    
+                <a href="#" class="data-toggle" data-toggle="dropdown">    
+                    <div class="icon music"></div>
+                </a>
+                <ul class="dropdown-menu">
+                	 <li>
+                        <div class="icon itunes"></div>
+                    </li>
+                    <li>
+                    	<div class="icon weather">
+							<span class="cloud"></span>
+						</div>
+                    </li>
+                    <li>
+                    	<div class="icon videos"></div>
+                    </li>
+                </ul>
+            </li>   
+             <li class="dropdown">    
+                <a href="#" class="data-toggle" data-toggle="dropdown">    
+                   	<div class="icon passbook">
+                        <span class="plane">
+                            <span class="picto"></span>
+                            <span class="knob"></span>
+                        </span>
+                        <span class="movie">
+                            <span class="picto"></span>
+                        </span>
+                        <span class="coffee">
+                            <span class="picto"></span>
+                        </span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu">
+                	<li>
+                    	<div class="icon calendar">
+                            <span class="one"></span>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="icon calculator">
+                            <span class="sign plus"></span>
+                            <span class="sign minus"></span>
+                            <span class="sign mul"></span>
+                            <span class="sign eq"></span>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="icon stocks">
+                            <span class="dot"></span>
+                            <span class="line l1"></span>
+                            <span class="line l2"></span>
+                            <span class="line l3"></span>
+                            <span class="line l4"></span>				
+                            <span class="line l5"></span>
+                            <span class="line l6"></span>
+                            <span class="line l7"></span>
+                            <span class="line l8"></span>
+                            <span class="line l9"></span>
+                            <span class="line l10"></span>				
+                            <span class="line l11"></span>
+                            <span class="line l12"></span>
+                            <span class="line l13"></span>
+                        </div>
+                    </li>
+                </ul>
+            </li>     
+    	</ul>
+            <span class="col-md-4 pull-right"><h1><<<多级图标菜单</h1><p class="text-info pull-right">author:linlancer</p></span>
+
+	</div>
+</div>
+
+<div class="side-menu" >
+	<ul class=" list-group">
+            <li>
+                <a href="#"><img id="img-1"src="image/im1.png" /></a>
+            </li>
+            <li>
+                <a href="#"><img id="img-2"src="image/im2.png" /></a>
+            </li>
+            <li>
+                <a href="#"><img id="img-3"src="image/im3.png" /></a>
+            </li>
+            <li>
+                <a href="#"><img id="img-4"src="image/im4.png" /></a>
+            </li>
+            <li>
+                <a href="#"><img id="img-5"src="image/im5.png" /></a>
+            </li>
+            <li>
+                <a href="#" class="menu-list">
+                	<img src="image/menulist.png">
+                    <img src="image/close.png" style="display:none;"/>
+                </a>
+            </li>
+
+    </ul>
+</div>
+
+<div class="container" style="margin-top:200px;">
+	<div class="panel panel-info">
+    	<div class="panel-heading"><h3>普通轮播菜单插件</h3></div>
+        <div class="panel-body" id="img-container">
+            <div class="left-menu"><img src="image/lefticon1.png" class="imgButton"/></div>
+            <div class="img imageBox-active"><img src="image/img1.jpg" class="imgGroup"/></div>
+            <div class="img imageBox"><img src="image/img2.jpg" class="imgGroup"/></div>
+            <div class="img imageBox"><img src="image/img3.jpg" class="imgGroup"/></div>
+            <div class="img imageBox"><img src="image/img4.jpg" class="imgGroup"/></div>
+            <div class="img imageBox"><img src="image/img5.jpg" class="imgGroup"/></div>
+            <div class="img imageBox"><img src="image/img6.jpg" class="imgGroup"/></div>
+            <div class="mid-list">
+                <li class="list-num">1</li>
+                <li class="list-num">2</li>
+                <li class="list-num">3</li>
+                <li class="list-num">4</li>
+                <li class="list-num">5</li>
+                <li class="list-num">6</li>
+            </div>
+            <div class="right-menu">
+                <img src="image/righticon2.png" class="imgButton"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" style="margin-top:100px;">
+	<div class="panel panel-info">
+    	<div class="panel-heading"><h3>动画轮播菜单插件</h3></div>
+        <div class="panel-body" id="carousel" style="height:500px;">
+            <div id="img1" ><img src="image/imgitem1.jpg"/></div>
+            <div id="img2" ><img src="image/imgitem2.jpg"/></div>
+            <div id="img3" ><img src="image/imgitem3.jpg"/></div>
+            <div id="img4" ><img src="image/imgitem4.jpg"/></div>
+            <div id="img5" ><img src="image/imgitem5.jpg"/></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="navbar navbar-fixed-bottom">
+	<div class="container">
+    	<ul class="nav nav-tabs" id="rotate">
+            <li><div class="itm"><img src="image/icon2.png"></div></li>
+            <li><div class="itm"><img src="image/icon3.png"></div></li>
+            <li><div class="itm"><img src="image/icon5.png"></div></li>
+            <li><div class="itm"><img src="image/icon6.png"></div></li>
+            <li><div class="itm"><img src="image/icon7.png"></div></li>
+            <li><div class="itm"><img src="image/icon8.png"></div></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
