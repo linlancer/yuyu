@@ -17,6 +17,14 @@ body
 ,div{
 	font-family:"微软雅黑";
 	}
+.topnav{
+	background:url(image/bg-img.jpg) center no-repeat;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-ms-background-size:cover;
+	height:180px;
+	}
 div.icon:hover{
 	box-shadow:3px 3px 8px  #0099FF
 	border-radius:30px !important;
@@ -63,14 +71,21 @@ ul.dropdown-menu{
 	height:140px;
 	border-radius:28px;
 	}
+#rotate img{
+	transition:0.5s;
+	}
 #rotate img:hover{
 	box-shadow:2px 2px 8px #33FF00;
+	transform:rotate(360deg) scale(1.2,1.2);
+	border-radius:50px;
+	
 	}
 .side-menu{
-	position:fixed;margin-top:280px;
+	position:fixed;margin-left:50px;
 	}
 .side-menu > ul > li{
 	position:absolute;
+	list-style:none;
 	}
 	
 .side-menu img:hover{
@@ -249,7 +264,7 @@ ul.dropdown-menu{
 	height:225px;
 	margin:37px 50px;
 	opacity:0.8;
-
+	transition:0.5s;
 	}
 div#img1{
 	width:400px;
@@ -294,8 +309,7 @@ div#img5{
 	height:262px;
 	margin:19px 25px;
 	opacity:1;
-	z-index:500 !important;
-
+	transform:scale(1,1);
 	}
 #carousel div{
 	position:absolute;
@@ -494,14 +508,14 @@ $(document).ready(function(){
 			}
 		});	
 	
-	$('#rotate img').hover(function() {
-		$this=$(this);
-		$this.parent().removeClass();
-		$this.parent().addClass("middle");
-	},function() {
-		$('#rotate img').parent().removeClass("middle");
-		$('#rotate img').parent().addClass('itm');
-	});
+//	$('#rotate img').hover(function() {
+//		$this=$(this);
+//		$this.parent().removeClass();
+//		$this.parent().addClass("middle");
+//	},function() {
+//		$('#rotate img').parent().removeClass("middle");
+//		$('#rotate img').parent().addClass('itm');
+//	});
 	$('.menu-list img:first').click(function() {
 		$('.menu-list img:first').hide();
 		$('.menu-list img:last').show();
@@ -548,190 +562,204 @@ $(document).ready(function(){
 });
 </script>
 <body>
-<div class="navbar navbar-fixed-top navbar-default">
-	<div class="container">
-        <ul class="nav nav-tabs col-md-8">
-          	<li class="dropdown"> 
-                <a href="#" class="data-toggle" data-toggle="dropdown" > 
-                   <div class="icon mail">
-                        <span class="picto">
-                            <span class="inner i1"></span>
-                            <span class="inner i2"></span>
-                        </span>
-                    </div>
-                </a>
-                <ul class="dropdown-menu" >
-                    <li class=" dropdown">
-                        <a href="#" class="data-toggle" data-toggle="dropdown"><div class="icon notes"></div></a>
-                        <ul class="dropdown-menu" style="position:absolute;margin-left:150px;margin-top:-100px;">
-                        	<li class="text-danger text-center">记事本</li>
-                            <li class="divider"></li>
-                            <li class="text-center"><a href="#" >信息<span ></span></a></li>
-                            <li class="text-center"><a href="#" >备注</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="data-toggle" data-toggle="dropdown"><div class="icon messages"></div></a>
-                        <ul class="dropdown-menu" style="position:absolute;margin-left:150px;margin-top:-320px;">
-                        	<li class="text-danger text-center">记事本</li>
-                            <li class="divider"></li>
-                            <li class="text-center"><a href="#" >信息<span ></span></a></li>
-                            <li class="text-center"><a href="#" >备注</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                    	<a href="#" class="data-toggle" data-toggle="dropdown">
-                            <div class="icon newsstand">
-                                <div class="news">
-                                    <span>News</span>
-                                </div>
-                                <div class="art">
-                                    <span>Art</span>
-                                </div>
-                                <div class="travel">
-                                    <span class="label">Travel</span>
-                                    <span class="picto"></span>
-                                </div>
-                                <div class="sports">
-                                    <span class="label">Sports</span>
-                                </div>
-                            </div>
-                        </a>
-                        <ul class="dropdown-menu" style="position:absolute;margin-left:150px;margin-top:-200px;">
-                        	<li class="text-danger text-center">记事本</li>
-                            <li class="divider"></li>
-                            <li class="text-center"><a href="#" >信息<span ></span></a></li>
-                            <li class="text-center"><a href="#" >备注</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                    	<a href="#" class="data-toggle" data-toggle="dropdown">
-                            <div class="icon reminders">
-                                <span class="list-item i1"></span>
-                                <span class="list-item i2"></span>
-                                <span class="list-item i3"></span>
-                                <span class="list-item i4"></span>
-                            </div>
-                        </a>
-                        <ul class="dropdown-menu" style="position:absolute;margin-left:150px;margin-top:-100px;">
-                        	<li class="text-danger text-center">记事本</li>
-                            <li class="divider"></li>
-                            <li class="text-center"><a href="#" >信息<span ></span></a></li>
-                            <li class="text-center"><a href="#" >备注</a></li>
-                        </ul>
-                    </li>
-        
-                </ul>
-            </li>
-            <li class="dropdown">    
-                <a href="#" class="data-toggle" data-toggle="dropdown">    
-                    <div class="icon facetime">
-                        <span class="picto"></span>
-                        <span class="lens"></span>
-                    </div>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <div class="icon photos">
-                            <span class="fan f1"></span>
-                            <span class="fan f2"></span>
-                            <span class="fan f3"></span>
-                            <span class="fan f4"></span>
-                            <span class="fan f5"></span>
-                            <span class="fan f6"></span>
-                            <span class="fan f7"></span>
-                            <span class="fan f8"></span>
-                        </div>
-                    </li>
-                   
-                    <li>
-                        <div class="icon gamecenter">
-                            <div class="bubble blue"></div>
-                            <div class="bubble yellow"></div>
-                            <div class="bubble purple"></div>
-                            <div class="bubble pink"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="icon camera">
-                            <span class="upper"></span>
-                            <span class="case"></span>
-                            <span class="knob"></span>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li class="dropdown">    
-                <a href="#" class="data-toggle" data-toggle="dropdown">    
-                    <div class="icon music"></div>
-                </a>
-                <ul class="dropdown-menu">
-                	 <li>
-                        <div class="icon itunes"></div>
-                    </li>
-                    <li>
-                    	<div class="icon weather">
-							<span class="cloud"></span>
-						</div>
-                    </li>
-                    <li>
-                    	<div class="icon videos"></div>
-                    </li>
-                </ul>
-            </li>   
-             <li class="dropdown">    
-                <a href="#" class="data-toggle" data-toggle="dropdown">    
-                   	<div class="icon passbook">
-                        <span class="plane">
-                            <span class="picto"></span>
-                            <span class="knob"></span>
-                        </span>
-                        <span class="movie">
-                            <span class="picto"></span>
-                        </span>
-                        <span class="coffee">
-                            <span class="picto"></span>
-                        </span>
-                    </div>
-                </a>
-                <ul class="dropdown-menu">
-                	<li>
-                    	<div class="icon calendar">
-                            <span class="one"></span>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="icon calculator">
-                            <span class="sign plus"></span>
-                            <span class="sign minus"></span>
-                            <span class="sign mul"></span>
-                            <span class="sign eq"></span>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="icon stocks">
-                            <span class="dot"></span>
-                            <span class="line l1"></span>
-                            <span class="line l2"></span>
-                            <span class="line l3"></span>
-                            <span class="line l4"></span>				
-                            <span class="line l5"></span>
-                            <span class="line l6"></span>
-                            <span class="line l7"></span>
-                            <span class="line l8"></span>
-                            <span class="line l9"></span>
-                            <span class="line l10"></span>				
-                            <span class="line l11"></span>
-                            <span class="line l12"></span>
-                            <span class="line l13"></span>
-                        </div>
-                    </li>
-                </ul>
-            </li>     
-    	</ul>
-            <span class="col-md-4 pull-right"><h1><<<多级图标菜单</h1><p class="text-info pull-right">author:linlancer</p></span>
 
-	</div>
+<div class="navbar navbar-default topnav ">
+	<div class="container">
+    <span style="text-shadow:5px 5px 10px #FF9933;font-size:50px;font-weight:bold;line-height:120px;color:rgba(51,102,255,0.8)">JQUERY PLUGIN</span>
+    <img src="image/author.png" class="pull-right" style="margin-top:130px;">
+    </div>
+</div>
+<div class="container" style="margin-top:30PX;">
+	<div class="panel panel-info">
+    	<div class="panel-heading"><h3>多级图标菜单</h3></div>
+        <div class="panel-body">
+            <div class="navbar nav navbar-default">
+                <div class="container">
+                    <ul class="nav nav-tabs col-md-8">
+                        <li class="dropdown"> 
+                            <a href="#" class="data-toggle" data-toggle="dropdown" > 
+                               <div class="icon mail">
+                                    <span class="picto">
+                                        <span class="inner i1"></span>
+                                        <span class="inner i2"></span>
+                                    </span>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu" >
+                                <li class=" dropdown">
+                                    <a href="#" class="data-toggle" data-toggle="dropdown"><div class="icon notes"></div></a>
+                                    <ul class="dropdown-menu" style="position:absolute;margin-left:150px;margin-top:-100px;">
+                                        <li class="text-danger text-center">记事本</li>
+                                        <li class="divider"></li>
+                                        <li class="text-center"><a href="#" >信息<span ></span></a></li>
+                                        <li class="text-center"><a href="#" >备注</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="data-toggle" data-toggle="dropdown"><div class="icon messages"></div></a>
+                                    <ul class="dropdown-menu" style="position:absolute;margin-left:150px;margin-top:-320px;">
+                                        <li class="text-danger text-center">记事本</li>
+                                        <li class="divider"></li>
+                                        <li class="text-center"><a href="#" >信息<span ></span></a></li>
+                                        <li class="text-center"><a href="#" >备注</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="data-toggle" data-toggle="dropdown">
+                                        <div class="icon newsstand">
+                                            <div class="news">
+                                                <span>News</span>
+                                            </div>
+                                            <div class="art">
+                                                <span>Art</span>
+                                            </div>
+                                            <div class="travel">
+                                                <span class="label">Travel</span>
+                                                <span class="picto"></span>
+                                            </div>
+                                            <div class="sports">
+                                                <span class="label">Sports</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu" style="position:absolute;margin-left:150px;margin-top:-200px;">
+                                        <li class="text-danger text-center">记事本</li>
+                                        <li class="divider"></li>
+                                        <li class="text-center"><a href="#" >信息<span ></span></a></li>
+                                        <li class="text-center"><a href="#" >备注</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="data-toggle" data-toggle="dropdown">
+                                        <div class="icon reminders">
+                                            <span class="list-item i1"></span>
+                                            <span class="list-item i2"></span>
+                                            <span class="list-item i3"></span>
+                                            <span class="list-item i4"></span>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu" style="position:absolute;margin-left:150px;margin-top:-100px;">
+                                        <li class="text-danger text-center">记事本</li>
+                                        <li class="divider"></li>
+                                        <li class="text-center"><a href="#" >信息<span ></span></a></li>
+                                        <li class="text-center"><a href="#" >备注</a></li>
+                                    </ul>
+                                </li>
+                    
+                            </ul>
+                        </li>
+                        <li class="dropdown">    
+                            <a href="#" class="data-toggle" data-toggle="dropdown">    
+                                <div class="icon facetime">
+                                    <span class="picto"></span>
+                                    <span class="lens"></span>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="icon photos">
+                                        <span class="fan f1"></span>
+                                        <span class="fan f2"></span>
+                                        <span class="fan f3"></span>
+                                        <span class="fan f4"></span>
+                                        <span class="fan f5"></span>
+                                        <span class="fan f6"></span>
+                                        <span class="fan f7"></span>
+                                        <span class="fan f8"></span>
+                                    </div>
+                                </li>
+                               
+                                <li>
+                                    <div class="icon gamecenter">
+                                        <div class="bubble blue"></div>
+                                        <div class="bubble yellow"></div>
+                                        <div class="bubble purple"></div>
+                                        <div class="bubble pink"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon camera">
+                                        <span class="upper"></span>
+                                        <span class="case"></span>
+                                        <span class="knob"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">    
+                            <a href="#" class="data-toggle" data-toggle="dropdown">    
+                                <div class="icon music"></div>
+                            </a>
+                            <ul class="dropdown-menu">
+                                 <li>
+                                    <div class="icon itunes"></div>
+                                </li>
+                                <li>
+                                    <div class="icon weather">
+                                        <span class="cloud"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon videos"></div>
+                                </li>
+                            </ul>
+                        </li>   
+                         <li class="dropdown">    
+                            <a href="#" class="data-toggle" data-toggle="dropdown">    
+                                <div class="icon passbook">
+                                    <span class="plane">
+                                        <span class="picto"></span>
+                                        <span class="knob"></span>
+                                    </span>
+                                    <span class="movie">
+                                        <span class="picto"></span>
+                                    </span>
+                                    <span class="coffee">
+                                        <span class="picto"></span>
+                                    </span>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="icon calendar">
+                                        <span class="one"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon calculator">
+                                        <span class="sign plus"></span>
+                                        <span class="sign minus"></span>
+                                        <span class="sign mul"></span>
+                                        <span class="sign eq"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon stocks">
+                                        <span class="dot"></span>
+                                        <span class="line l1"></span>
+                                        <span class="line l2"></span>
+                                        <span class="line l3"></span>
+                                        <span class="line l4"></span>				
+                                        <span class="line l5"></span>
+                                        <span class="line l6"></span>
+                                        <span class="line l7"></span>
+                                        <span class="line l8"></span>
+                                        <span class="line l9"></span>
+                                        <span class="line l10"></span>				
+                                        <span class="line l11"></span>
+                                        <span class="line l12"></span>
+                                        <span class="line l13"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>     
+                    </ul>
+                </div>
+                    </div>
+                </div>
+            <div>
+        </div>
+    </div>
 </div>
 
 <div class="side-menu" >
@@ -761,7 +789,7 @@ $(document).ready(function(){
     </ul>
 </div>
 
-<div class="container" style="margin-top:200px;">
+<div class="container" style="margin-top:30px;">
 	<div class="panel panel-info">
     	<div class="panel-heading"><h3>普通轮播菜单插件</h3></div>
         <div class="panel-body" id="img-container">
@@ -788,7 +816,7 @@ $(document).ready(function(){
 </div>
 
 
-<div class="container" style="margin-top:100px;">
+<div class="container" style="margin-top:30px;">
 	<div class="panel panel-info">
     	<div class="panel-heading"><h3>动画轮播菜单插件</h3></div>
         <div class="panel-body" id="carousel" style="height:500px;">
@@ -801,17 +829,23 @@ $(document).ready(function(){
     </div>
 </div>
 
-
-<div class="navbar navbar-fixed-bottom">
-	<div class="container">
-    	<ul class="nav nav-tabs" id="rotate">
-            <li><div class="itm"><img src="image/icon2.png"></div></li>
-            <li><div class="itm"><img src="image/icon3.png"></div></li>
-            <li><div class="itm"><img src="image/icon5.png"></div></li>
-            <li><div class="itm"><img src="image/icon6.png"></div></li>
-            <li><div class="itm"><img src="image/icon7.png"></div></li>
-            <li><div class="itm"><img src="image/icon8.png"></div></li>
-        </ul>
+<div class=" container">
+	<div class="panel panel-info">
+        <div class="panel-heading"><h3>旋转菜单</h3></div>
+        <div class="panel-body" style="margin-top:30px">
+            <div class="navbar nav">
+                <div class="container">
+                    <ul class="nav nav-tabs" id="rotate">
+                        <li><div class="itm"><img src="image/icon2.png"></div></li>
+                        <li><div class="itm"><img src="image/icon3.png"></div></li>
+                        <li><div class="itm"><img src="image/icon5.png"></div></li>
+                        <li><div class="itm"><img src="image/icon6.png"></div></li>
+                        <li><div class="itm"><img src="image/icon7.png"></div></li>
+                        <li><div class="itm"><img src="image/icon8.png"></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
